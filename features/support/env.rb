@@ -3,7 +3,8 @@ require 'rspec'
 
 Before do
   
-    	Selenium::WebDriver::Chrome.driver_path = File.join('/usr/lib/chromium/', 'chromedriver')
+Selenium::WebDriver::Chrome.driver_path="/usr/bin/chromedriver"
+ #   	Selenium::WebDriver::Chrome.driver_path = File.join('/usr/bin', 'chromedriver')
   options = Selenium::WebDriver::Chrome::Options.new
  # @driver = Selenium::WebDriver.for :chrome, options: %w[--headless --no-sandbox --disable-gpu --remote-debugin-port=9222]
   #options.add_argument("–disable-dev-shm-usage");
@@ -14,6 +15,8 @@ Before do
     options.add_argument("--remote-debugin-port=9222")
   @driver = Selenium::WebDriver.for :chrome, options: options
   @driver.manage.window.maximize
+driver.get("http://google.com")
+
 end
 
 After do |scenario|
